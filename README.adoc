@@ -1,0 +1,15 @@
+= postgresql-demo
+
+PostgreSQL for demo/dev/test.
+
+Requires certificates. Add them to certs-directory and then build container.
+
+```
+podman build -t psql .
+```
+
+Run PostgreSQL. Set environment variables as required.
+
+```
+podman run -it --rm --name psql -p 5432:5432 -e DB_NAME=appdb -e DB_USER_NAME=appuser -e DB_USER_PASSWORD=mypassword -e POSTGRES_PASSWORD=mypassword -v /postgres/data:/data psql
+```
